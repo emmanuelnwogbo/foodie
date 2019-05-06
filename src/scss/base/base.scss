@@ -9,6 +9,62 @@
 html {
   box-sizing: border-box;
   font-size: 63%;
+
+  @media only screen and (max-width: 118.5em) {
+    font-size: 60%;
+  }
+
+  @media only screen and (max-width: 113.625em) {
+    font-size: 58%;
+  }
+
+  @media only screen and (max-width: 112.063em) {
+    font-size: 50%;
+  }
+
+  @media only screen and (max-width: 95.063em) {
+    font-size: 41%;
+  }
+
+  @media only screen and (max-width: 82.438em) {
+    font-size: 41%;
+  }
+
+  @media only screen and (max-width: 72.688em) {
+    font-size: 34%;
+  }
+
+  @media only screen and (max-width: 66em) {
+    font-size: 48%;
+  }
+
+  @media only screen and (max-width: 65.5em) {
+    font-size: 40%;
+  }
+
+  @media only screen and (max-width: 54.188em) {
+    font-size: 30%;
+  }
+
+  @media only screen and (max-width: 51.563em) {
+    font-size: 53%;
+  }
+
+  @media only screen and (max-width: 50.813em) {
+    font-size: 60%;
+  }
+
+  @media only screen and (max-width: 32.188em) {
+    font-size: 52%;
+  }
+
+  @media only screen and (max-width: 20.875em) {
+    font-size: 40%;
+  }
+
+  @media only screen and (max-width: 17.563em) {
+    font-size: 30%;
+  }
 }
 
 body {}
