@@ -23,17 +23,23 @@ class App extends Component {
   }
 
   getResults = (query)  => {
-    axios.get(`${proxy}http://food2fork.com/api/search?key=${key}&q=${query}`)
-      .then(res => {
-        const {recipes, count} = res.data;
-        import('./components/Card')
-          .then(Card => {
-            this.setState({ recipeCard: Card.default, recipes, count})
-          });
-      })
-      .catch(err => {
-        console.log(err)
-      })
+    this.setState({
+       recipes: null, 
+       count: null, 
+       loader: 'block' 
+      }, () => {
+        axios.get(`${proxy}http://food2fork.com/api/search?key=${key}&q=${query}`)
+        .then(res => {
+          const {recipes, count} = res.data;
+          import('./components/Card')
+            .then(Card => {
+              this.setState({ recipeCard: Card.default, recipes, count})
+            });
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      });
   }
 
   render() {
