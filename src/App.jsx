@@ -5,13 +5,16 @@ import './scss/main.scss';
 import { key, proxy } from '../config';
 
 import SearchBar from './components/SearchBar';
+import Container from './components/Container';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      key: key,
-      query: 'eggs',
+      recipes: null,
+      count: null,
+      recipeCard: null,
+      loader: 'block'
     }
   }
 
@@ -20,9 +23,13 @@ class App extends Component {
   }
 
   getResults = (query)  => {
-    axios.get(`${proxy}http://food2fork.com/api/search?key=${this.state.key}&q=${query}`)
+    axios.get(`${proxy}http://food2fork.com/api/search?key=${key}&q=${query}`)
       .then(res => {
-        console.log(res)
+        const {recipes, count} = res.data;
+        import('./components/Card')
+          .then(Card => {
+            this.setState({ recipeCard: Card.default, recipes, count})
+          });
       })
       .catch(err => {
         console.log(err)
@@ -33,7 +40,10 @@ class App extends Component {
     return (
       <div className="app">
         <SearchBar getResults={this.getResults}/>
-        <p>hello world</p>
+        <Container card={this.state.recipeCard} recipes={this.state.recipes} count={this.state.count}/>
+        <div className="loader" style={{display: this.state.loader}}>
+          <div className="loader--animation"></div>
+        </div>
       </div>
     )
   }

@@ -5,7 +5,15 @@
   padding: 1.5rem 2.5rem;
   background: #fff;
   width: 100%;
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
+  box-shadow: 0 .5rem 1rem rgba(230, 126, 34,1.0);
+  z-index: 3000;
+
+  &--name {
+    color: rgba(230, 126, 34,1.0);
+    position: absolute;
+    transform: translateY(1rem);
+    font-size: 2.5rem;
+  }
 
   &--input {
     width: 60%;
@@ -14,15 +22,19 @@
     transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
     font-family: inherit;
     font-weight: 700;
-    color: rgba(30, 39, 46,.7);
+    color: rgba(30, 39, 46,.9);
     border-radius: 3.5px;
     background-color: #f5f6fa;
-    border: 1.5px solid rgba(30, 39, 46,.7);
+    border: 1.5px solid rgba(230, 126, 34,1.0);
     display: block;
     margin: 0 auto;
     
     &:focus {
       outline: none;
+    }
+
+    &::placeholder {
+      color: rgba(245, 127, 23,.5);
     }
   }
 }

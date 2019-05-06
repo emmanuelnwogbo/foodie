@@ -11,7 +11,7 @@ class SearchBar extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props)
+    //console.log(this.props)
   }
 
   getQuery = (event) => {
@@ -28,6 +28,7 @@ class SearchBar extends Component {
   render() {
     return (
       <div className="searchBar">
+        <h1 className="searchBar--name">Foodie</h1>
         <input type="text" onKeyPress={this.getQuery} className="searchBar--input" placeholder="find recipes"/>
       </div>
     )
