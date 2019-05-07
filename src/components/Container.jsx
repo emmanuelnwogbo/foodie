@@ -32,7 +32,7 @@ class Container extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="container" id="container">
         <div className="container--count">{this.returnCount()}</div>
         { this.returnRecipes() }
       </div>

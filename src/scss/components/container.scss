@@ -1,21 +1,11 @@
 .container {
   position: relative;
-  padding: 6rem 7.5rem;
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
   margin: 0 auto;
   margin-top: 9rem;
-  width: 93%;
-  justify-content: center;
-
-  @media only screen and (max-width: 82.438em) {
-    width: 100%
-  }
-
-  @media only screen and (max-width: 32.188em) {
-    padding: 6rem 0;
-  }
+  padding: 6rem 5rem;
 
   &--count {
     position: absolute;
@@ -23,12 +13,7 @@
     padding: 1rem 2rem;
     color: rgba(96, 112, 124, 0.5);
     font-weight: 900;
-    font-size: 3.5rem;    
-    transform: translateX(-65rem);
-
-    @media only screen and (max-width: 66.438em) {
-      transform: translateX(0rem);
-    }
+    font-size: 3.5rem; 
   }
 
   &--card { 
@@ -106,14 +91,6 @@
       &:hover {
         cursor: pointer;
       }
-    }
-  }
-
-  & &--card:nth-child(31) {
-    transform: translateX(-80rem);
-
-    @media only screen and (max-width: 51.438em) {
-      transform: translateX(0rem);
     }
   }
 }

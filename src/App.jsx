@@ -15,25 +15,45 @@ class App extends Component {
       count: null,
       recipeCard: null,
       loader: 'block',
-      limit: 11,
-      loaderAnimation: null
+      limit: 12,
+      loaderAnimation: null,
+      scrolling: false
     };
 
-    window.onscroll = () => {
-      /*if ((window.innerHeight + window.scrollY) >= 
-      (document.body.offsetHeight - 500)) {
-        console.log('hello')
-      }*/
-      console.log(this.state.loaderAnimation.getBoundingClientRect())
-      if (this.state.loaderAnimation.getBoundingClientRect().top <= 953) {
-        return console.log('load more')
-      }
-    }
+    window.addEventListener('scroll', (e) => {
+      this.handleScroll(e);
+    })
   }
 
   componentDidMount() {
     const loaderAnimation = document.getElementById('loader--animation');
     this.setState({ loaderAnimation })
+  }
+
+  handleScroll = (e) => {
+    const { scrolling, count, limit } = this.state;
+    if (scrolling) return;
+    if (count <= limit) {
+      this.setState({ loader: 'none' })
+      return
+    };
+    console.log(scrolling, count, limit)
+    console.log(e)
+    const lastCard = document.querySelector('div.container > div.container--card:last-child');
+    console.log(lastCard)
+    const lastCardOffset = lastCard.offsetTop + lastCard.clientHeight;
+    const pageOffset = window.pageYOffset + window.innerHeight;
+    let bottomOffset = 20;
+    if (pageOffset > lastCardOffset - bottomOffset) this.loadMore()
+  }
+
+  loadMore = () => {
+    this.setState(prevState => ({
+      limit: prevState.limit + 10,
+      scrolling: true,
+    }), () => {
+      this.setState({scrolling: false})
+    })
   }
 
   getResults = (query)  => {
