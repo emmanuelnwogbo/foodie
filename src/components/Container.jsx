@@ -8,10 +8,14 @@ class Container extends Component {
   }
 
   returnRecipes = () => {
-    if (this.props.recipes !== null) {
+    if (this.props.recipes !== null && 
+      this.props.recipes.length && 
+      this.props.recipes.length !== 0) {
       const Card = this.props.card
       return this.props.recipes.map(recipe => {
-        return <Card key={recipe.recipe_id} recipe={recipe}/>
+        if (this.props.recipes.indexOf(recipe) <= this.props.limit) {
+          return <Card key={recipe.recipe_id} recipe={recipe}/>
+        }
       })
     }
 

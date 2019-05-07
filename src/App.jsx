@@ -14,12 +14,26 @@ class App extends Component {
       recipes: null,
       count: null,
       recipeCard: null,
-      loader: 'block'
+      loader: 'block',
+      limit: 11,
+      loaderAnimation: null
+    };
+
+    window.onscroll = () => {
+      /*if ((window.innerHeight + window.scrollY) >= 
+      (document.body.offsetHeight - 500)) {
+        console.log('hello')
+      }*/
+      console.log(this.state.loaderAnimation.getBoundingClientRect())
+      if (this.state.loaderAnimation.getBoundingClientRect().top <= 953) {
+        return console.log('load more')
+      }
     }
   }
 
   componentDidMount() {
-    //this.getResults().then()
+    const loaderAnimation = document.getElementById('loader--animation');
+    this.setState({ loaderAnimation })
   }
 
   getResults = (query)  => {
@@ -46,9 +60,9 @@ class App extends Component {
     return (
       <div className="app">
         <SearchBar getResults={this.getResults}/>
-        <Container card={this.state.recipeCard} recipes={this.state.recipes} count={this.state.count}/>
+        <Container card={this.state.recipeCard} recipes={this.state.recipes} count={this.state.count} limit={this.state.limit}/>
         <div className="loader" style={{display: this.state.loader}}>
-          <div className="loader--animation"></div>
+          <div className="loader--animation" id="loader--animation"></div>
         </div>
       </div>
     )
