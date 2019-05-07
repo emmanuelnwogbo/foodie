@@ -5,7 +5,22 @@
   align-content: flex-start;
   margin: 0 auto;
   margin-top: 9rem;
-  padding: 6rem 5rem;
+  padding: 6rem 0rem;
+  width: 91%;
+
+  @media only screen and (max-width: 116.5em) {
+    width: 81%;
+  }
+
+  @media only screen and (max-width: 109em) {
+    width: 100%;
+  }
+
+  @media only screen and (max-width: 64em) {
+    margin-top: 22rem;
+    padding: 5rem 0rem;
+    width: 82%
+  }
 
   &--count {
     position: absolute;
@@ -14,13 +29,17 @@
     color: rgba(96, 112, 124, 0.5);
     font-weight: 900;
     font-size: 3.5rem; 
+
+    @media only screen and (max-width: 64em) {
+      padding: 0rem 2rem;
+    }
   }
 
   &--card { 
     position: relative;
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
     border-bottom: 0.2rem solid rgba(245, 127, 23, 0.5);
-    margin: 2rem;
+    margin: 1.5rem;
     padding-bottom: 6rem;
     width: 36rem;
     overflow: hidden;

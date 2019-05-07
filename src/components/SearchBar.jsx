@@ -29,7 +29,9 @@ class SearchBar extends Component {
     return (
       <div className="searchBar">
         <h1 className="searchBar--name">Foodie</h1>
-        <input type="text" onKeyPress={this.getQuery} className="searchBar--input" placeholder="find recipes"/>
+        <div className="searchBar__input--parent">
+          <input type="text" onKeyPress={this.getQuery} className="searchBar--input" placeholder="find recipes"/>
+        </div>
       </div>
     )
   }

@@ -8,5 +8,29 @@
 
 html {
   box-sizing: border-box;
-  font-size: 63%;
+  font-size: 69%;
+
+  @media only screen and (max-width: 118em) {
+    font-size: 90%;
+  }
+
+  @media only screen and (max-width: 116.5em) {
+    font-size: 89%;
+  }
+
+  @media only screen and (max-width: 111.5em) {
+    font-size: 75%;
+  }
+
+  @media only screen and (max-width: 109em) {
+    font-size: 92%;
+  }
+
+  @media only screen and (max-width: 70em) {
+    font-size: 81%;
+  }
+
+  @media only screen and (max-width: 62.5em) {
+    font-size: 63%;
+  }
 }
