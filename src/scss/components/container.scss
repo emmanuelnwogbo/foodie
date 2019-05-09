@@ -10,6 +10,10 @@
   z-index: 4000;
   transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
 
+  @media only screen and (max-width: 79.25em) {
+    justify-content: center;
+  }
+
   @media only screen and (max-width: 64em) {
     padding: 17rem 0
   }
