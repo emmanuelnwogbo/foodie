@@ -19,13 +19,21 @@ class Card extends Component {
     }
   }
 
+  componentDidMount() {
+    console.log(this.props.id)
+    document.getElementById(`${this.props.id}`).onload = function() {
+      this.previousSibling.style.zIndex = '-1';
+    }
+  }
+
   render() {
     const { recipe } = this.props;
     return (
       <div className="container__card--parent">
         <div className="container--card">
           <figure className="container--figure">
-            <img className="container--img" src={recipe.image_url}/>
+            <div className="container__img--placeholder"></div>
+            <img id={`${this.props.id}`} className="container--img" src={recipe.image_url}/>
           </figure>
           <div className="container--details">
             <p className="container--title">{recipe.title}</p>

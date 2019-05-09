@@ -10,27 +10,43 @@ html {
   box-sizing: border-box;
   font-size: 69%;
 
-  @media only screen and (max-width: 118em) {
-    font-size: 90%;
+  @media only screen and (max-width: 194.5em) {
+    font-size: 90%
   }
 
-  @media only screen and (max-width: 116.5em) {
-    font-size: 89%;
+  @media only screen and (max-width: 167.5em) {
+    font-size: 97%
   }
 
-  @media only screen and (max-width: 111.5em) {
-    font-size: 75%;
+  @media only screen and (max-width: 125em) {
+    font-size: 90%
   }
 
-  @media only screen and (max-width: 109em) {
-    font-size: 92%;
+  @media only screen and (max-width: 64em) {
+    font-size: 74%
   }
 
-  @media only screen and (max-width: 70em) {
-    font-size: 81%;
+  @media only screen and (max-width: 50em) {
+    font-size: 58%
   }
 
-  @media only screen and (max-width: 62.5em) {
-    font-size: 63%;
+  @media only screen and (max-width: 48em) {
+    font-size: 56%
+  }
+
+  @media only screen and (max-width: 37.5em) {
+    font-size: 73%
+  }
+
+  @media only screen and (max-width: 25.875em) {
+    font-size: 55%
+  }
+
+  @media only screen and (max-width: 25.688em) {
+    font-size: 50%
+  }
+
+  @media only screen and (min-width: 230em) {
+    font-size: 133%
   }
 }

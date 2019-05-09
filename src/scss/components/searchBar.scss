@@ -17,10 +17,6 @@
     flex-direction: column;
   }
 
-  @media only screen and (max-width: 22.5em) {
-    width: 83%;
-  }
-
   &--name {
     color: rgba(230, 126, 34,1.0);
     font-size: 2.5rem;

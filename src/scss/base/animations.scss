@@ -7,3 +7,13 @@
     transform: rotate(360deg);
   }
 }
+
+@keyframes pulse {
+  0% {
+    background: linear-gradient( to left,hsl(0, 0%, 90%) );
+  }
+
+  100% {
+    background: linear-gradient( to left, hsl(0, 0%, 90%), hsl(0, 0%, 80%) );
+  }
+}

@@ -70,10 +70,9 @@ const config = {
   plugins: [
     new LodashModuleReplacementPlugin,
     new HtmlWebpackPlugin({
-        template: require('html-webpack-template'),
-        inject: false,
-        appMountId: 'app',
-      })
+      filename: "index.html",
+      template: "./src/index.html"
+    })
   ],
   optimization: {
     runtimeChunk: 'single',

@@ -8,19 +8,15 @@
   padding: 6rem 0rem;
   width: 91%;
   z-index: 4000;
-
-  @media only screen and (max-width: 116.5em) {
-    width: 81%;
-  }
-
-  @media only screen and (max-width: 109em) {
-    width: 100%;
-  }
+  transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
 
   @media only screen and (max-width: 64em) {
-    margin-top: 22rem;
-    padding: 5rem 0rem;
-    width: 82%
+    padding: 17rem 0
+  }
+
+  @media only screen and (max-width: 37.5em) {
+    flex-direction: column;
+    align-content: center;
   }
 
   &--count {
@@ -32,7 +28,12 @@
     font-size: 3.5rem; 
 
     @media only screen and (max-width: 64em) {
-      padding: 0rem 2rem;
+      padding: 11rem 2rem;
+    }
+
+    @media only screen and (max-width: 37.5em) {
+      width: 100%;
+      text-align: center;
     }
   }
 
@@ -50,14 +51,22 @@
   }
 
   &--figure {
+    position: relative;
     height: 36rem;
     width: 36rem;
     overflow: hidden;
     border-radius: .1rem;
+  }
 
-    @media only screen and (max-width: 32.188em) {
-      width: 40rem;
-    }
+  &__img--placeholder {
+    background: linear-gradient( to left, hsl(0, 0%, 80%), hsl(0, 0%, 90%) );
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: pulse 1s linear 1s infinite;
+    width: 100%;
+    height: 100%;
+    transition: all 1s ease-in;
   }
 
   &--img {
@@ -65,6 +74,7 @@
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
   }
 
   &--details {

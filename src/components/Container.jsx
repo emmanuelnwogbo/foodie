@@ -20,7 +20,7 @@ class Container extends Component {
         if (this.props.recipes.indexOf(recipe) <= this.props.limit) {
           return (
             <Suspense key={recipe.recipe_id} fallback={<div className="lazyLoading--placeholder"></div>}>
-              <Card key={recipe.recipe_id} recipe={recipe}/>
+              <Card key={recipe.recipe_id} id={recipe.recipe_id} recipe={recipe}/>
             </Suspense>
           )
         }
