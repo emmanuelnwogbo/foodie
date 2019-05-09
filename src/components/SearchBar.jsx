@@ -5,9 +5,6 @@ import '../scss/components/searchBar.scss';
 class SearchBar extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      query: null
-    }
   }
 
   componentDidMount() {
@@ -18,10 +15,7 @@ class SearchBar extends Component {
     let query;
     if (event.key === 'Enter') {
       query = event.target.value;
-      this.setState({ query }, () => {
-        console.log('search: ', this.state)
-        this.props.getResults(this.state.query)
-      })
+      this.props.getResults(query)
     }
   }
 

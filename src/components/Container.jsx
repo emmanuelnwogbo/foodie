@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, Suspense } from 'react';
 
 import '../scss/components/container.scss';
+import '../scss/components/lazyLoadingCard.scss'
 
 class Container extends Component {
   constructor(props) {
@@ -8,13 +9,20 @@ class Container extends Component {
   }
 
   returnRecipes = () => {
+    if (this.props.recipes === undefined) {
+      return console.log('api calls finished')
+    }
     if (this.props.recipes !== null && 
       this.props.recipes.length && 
       this.props.recipes.length !== 0) {
       const Card = this.props.card
       return this.props.recipes.map(recipe => {
         if (this.props.recipes.indexOf(recipe) <= this.props.limit) {
-          return <Card key={recipe.recipe_id} recipe={recipe}/>
+          return (
+            <Suspense key={recipe.recipe_id} fallback={<div className="lazyLoading--placeholder"></div>}>
+              <Card key={recipe.recipe_id} recipe={recipe}/>
+            </Suspense>
+          )
         }
       })
     }

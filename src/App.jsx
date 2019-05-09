@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, lazy } from 'react';
 import axios from 'axios';
 
 import './scss/main.scss';
@@ -14,33 +14,26 @@ class App extends Component {
       recipes: null,
       count: null,
       recipeCard: null,
-      loader: 'block',
       limit: 12,
-      loaderAnimation: null,
-      scrolling: false
+      scrolling: false,
+      loaderVisibility: 'none'
     };
 
-    window.addEventListener('scroll', (e) => {
-      this.handleScroll(e);
-    })
+    window.addEventListener('scroll', this.handleScroll, false)
   }
 
   componentDidMount() {
-    const loaderAnimation = document.getElementById('loader--animation');
-    this.setState({ loaderAnimation })
+    this.getResults('pizza')
   }
 
   handleScroll = (e) => {
     const { scrolling, count, limit } = this.state;
     if (scrolling) return;
     if (count <= limit) {
-      this.setState({ loader: 'none' })
       return
     };
-    console.log(scrolling, count, limit)
-    console.log(e)
-    const lastCard = document.querySelector('div.container > div.container--card:last-child');
-    console.log(lastCard)
+    //console.log(scrolling, count, limit);
+    const lastCard = document.querySelector('div.container > div.container__card--parent:last-child');
     const lastCardOffset = lastCard.offsetTop + lastCard.clientHeight;
     const pageOffset = window.pageYOffset + window.innerHeight;
     let bottomOffset = 20;
@@ -60,18 +53,22 @@ class App extends Component {
     this.setState({
        recipes: null, 
        count: null, 
-       loader: 'block' 
+       loaderVisibility: 'block' 
       }, () => {
-        axios.get(`${proxy}http://food2fork.com/api/search?key=${key}&q=${query}`)
-        .then(res => {
-          const {recipes, count} = res.data;
-          import('./components/Card')
-            .then(Card => {
-              this.setState({ recipeCard: Card.default, recipes, count})
-            });
-        })
-        .catch(err => {
-          console.log(err)
+        this.setState({ limit: 12 }, () => {
+          axios.get(`${proxy}http://food2fork.com/api/search?key=${key}&q=${query}`)
+            .then(res => {
+              //console.log(res.data)
+              window.removeEventListener('scroll', this.handleScroll, false)
+              const {recipes, count} = res.data;
+              const Card = lazy(() => import('./components/Card'));
+              this.setState({ recipeCard: Card, recipes, count, loaderVisibility: 'none'}, () => {
+                window.addEventListener('scroll', this.handleScroll, false)
+              })
+            })
+            .catch(err => {
+              console.log(err)
+            })
         })
       });
   }
@@ -81,8 +78,8 @@ class App extends Component {
       <div className="app">
         <SearchBar getResults={this.getResults}/>
         <Container card={this.state.recipeCard} recipes={this.state.recipes} count={this.state.count} limit={this.state.limit}/>
-        <div className="loader" style={{display: this.state.loader}}>
-          <div className="loader--animation" id="loader--animation"></div>
+        <div className="loader__loader" style={{display: this.state.loaderVisibility}}>
+          <div className="loader__loader--animation" id="loader--animation"></div>
         </div>
       </div>
     )

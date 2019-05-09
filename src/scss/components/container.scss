@@ -7,6 +7,7 @@
   margin-top: 9rem;
   padding: 6rem 0rem;
   width: 91%;
+  z-index: 4000;
 
   @media only screen and (max-width: 116.5em) {
     width: 81%;
@@ -35,19 +36,17 @@
     }
   }
 
-  &--card { 
+  &__card--parent {
     position: relative;
-    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
-    border-bottom: 0.2rem solid rgba(245, 127, 23, 0.5);
     margin: 1.5rem;
+  }
+
+  &--card { 
+    border-bottom: 0.2rem solid rgba(245, 127, 23, 0.5);
     padding-bottom: 6rem;
     width: 36rem;
     overflow: hidden;
     border-radius: .2rem;
-
-    @media only screen and (max-width: 32.188em) {
-      width: 40rem;
-    }
   }
 
   &--figure {
@@ -77,7 +76,9 @@
   }
 
   &--title {
-    font-size: 2rem;
+    font-size: 1.7rem;
+    height: 3rem;
+    overflow: hidden;
   }
 
   &--publisher {
@@ -88,10 +89,10 @@
   }
 
   &__viewmore {
-    padding: .5rem 1rem;
+    padding: 0 1rem;
     transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
     position: absolute;
-    bottom: 2%;
+    bottom: 5%;
 
     &--btn {
       background: #e67e22;

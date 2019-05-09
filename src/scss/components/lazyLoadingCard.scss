@@ -1,0 +1,15 @@
+.lazyLoading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(245, 246, 250,1.0);
+
+  &--placeholder {
+    width: 36rem;
+    height: 50rem;
+    background: rgba(245, 246, 250,1.0);
+    margin: 1.5rem;
+  }
+}

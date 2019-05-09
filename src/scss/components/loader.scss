@@ -1,21 +1,24 @@
 .loader {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  left: 0;
-  padding: 3rem;
-  transform: translateY(8rem);
-  
-  &--animation {
-    width: 7rem;
-    height: 7rem;
-    border-radius: 50%;
-    border: .5rem solid;
-    border-color:  rgba(230, 126, 34,1.0) rgba(230, 126, 34,1.0) rgba(230, 126, 34,1.0) #fff;
-    transition: all .5s ease-in;
-    background: transparent;
-    position: relative;
-    animation: spin 1s linear 1s infinite;
-    margin: 0 auto;
+  &__loader {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    left: 0;
+    padding: 3rem;
+    transform: translateY(8rem);
+    z-index: 3000;
+
+    &--animation {
+      width: 7rem;
+      height: 7rem;
+      border-radius: 50%;
+      border: .5rem solid;
+      border-color:  rgba(230, 126, 34,1.0) rgba(230, 126, 34,1.0) rgba(230, 126, 34,1.0) #fff;
+      transition: all .5s ease-in;
+      background: transparent;
+      position: relative;
+      animation: spin 1s linear 1s infinite;
+      margin: 0 auto;
+    }
   }
 }
