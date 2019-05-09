@@ -20,7 +20,6 @@ class Card extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props.id)
     document.getElementById(`${this.props.id}`).onload = function() {
       this.previousSibling.style.zIndex = '-1';
     }

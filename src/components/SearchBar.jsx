@@ -15,7 +15,8 @@ class SearchBar extends Component {
     let query;
     if (event.key === 'Enter') {
       query = event.target.value;
-      this.props.getResults(query)
+      this.props.getResults(query);
+      event.target.blur();
     }
   }
 
